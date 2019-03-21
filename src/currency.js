@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
       if(index === 0){
         if(amountLeft % coins[index] === 0 ){
+          //trying to keep track of the coin value and the amount left that needs to be taken care of
           combinations.push([coins[index], amountLeft])
           count++
         }
@@ -54,6 +55,9 @@ document.addEventListener("DOMContentLoaded", function(){
       }
 
       while(amountLeft >= 0){
+          //trying to keep track of the coin value and the amount left that needs to be taken care of, this is where I am getting stuck at
+          //I need to find a way to change the total with my new coin denomination i.e. after 10 pennies, now its 5 pennies and 1 nickel.
+          //for loop with a range of 0 to 2?
           coinCombinations(index-1, amountLeft)
           combinations.push([coins[index], amountLeft ]);
           amountLeft -= coins[index];
