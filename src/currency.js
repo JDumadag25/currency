@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function(){
   function coinCounter(total) {
     let count = 0
     let coins = [1,5]
-    //was gonna use this to potentally keep track of amounts, have not used this yet.
     let coinObject = {"Quarter":0, "Dime":0, "Nickel":0, "Penny":0}
     let combinations = []
 
@@ -48,20 +47,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
       if(index === 0){
         if(amountLeft % coins[index] === 0 ){
-          //trying to keep track of the coin value and the amount left that needs to be taken care of
           combinations.push([coins[index], amountLeft])
-          //console.log(combinations);
-          //combos show up but not really what I am looking for. 
           count++
         }
         return
       }
 
       while(amountLeft >= 0){
-          //trying to keep track of the coin value and the amount left that needs to be taken care of, this is where I am getting stuck at
-          //I need to find a way to change the total with my new coin denomination i.e. after 10 pennies, now its 5 pennies and 1 nickel.
-          //for loop with a range of 0 to 2 then call the recursive function?.
-          //using smaller amounts and denominations for ease of debugging
           coinCombinations(index-1, amountLeft)
           combinations.push([coins[index], amountLeft ]);
           amountLeft -= coins[index];
@@ -72,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
 console.log(coinCounter(cents));
+
 
 
 })
